@@ -3,11 +3,14 @@ FROM node:18-alpine
 WORKDIR /app
 
 COPY package*.json ./
-COPY backend/package*.json ./backend/
+COPY backend/ ./backend/
 
 RUN npm ci
 
-RUN npx tsc -p backend/tsconfig.json
+WORKDIR /app/backend
+RUN npx tsc
+
+WORKDIR /app
 
 EXPOSE 3000
 
