@@ -5,7 +5,6 @@ WORKDIR /app
 # Copia os arquivos do monorepo
 COPY package*.json ./
 COPY backend/package*.json ./backend/
-COPY packages/ ./packages/
 
 # Instala as dependências
 RUN npm ci
